@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/TasksContext";
+import { TaskItem } from "./TaskItem";
 
 const Tasks = () => {
   // import tasks list
@@ -13,9 +14,21 @@ const Tasks = () => {
 
   return (
     <section>
-      <div className="todo-list"></div>
-      <div className="inProgress-list"></div>
-      <div className="done-list"></div>
+      <div className="todo-list">
+        {todoList.map((task) => (
+          <TaskItem task={task} key={task.id} />
+        ))}
+      </div>
+      <div className="inProgress-list">
+        {inProgressList.map((task) => (
+          <TaskItem task={task} key={task.id} />
+        ))}
+      </div>
+      <div className="done-list">
+        {doneList.map((task) => (
+          <TaskItem task={task} key={task.id} />
+        ))}
+      </div>
     </section>
   );
 };

@@ -1,7 +1,15 @@
+import { AppProvider } from "./context/TasksContext";
+
 import "./App.css";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <AppProvider>
+      <div className="App">
+
+      </div>
+    </AppProvider>
+  );
 }
 
 export default App;

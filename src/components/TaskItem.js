@@ -4,7 +4,7 @@ export const TaskItem = ({ task }) => {
   return (
     <li>
       <div className="task-content">
-        <p className="task-title">{task.title}</p>
+        <h3 className="task-title">{task.title}</h3>
         <p>{task.description}</p>
       </div>
       <div className="task-actions">

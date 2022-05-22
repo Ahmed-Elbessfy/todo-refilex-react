@@ -13,22 +13,25 @@ const Tasks = () => {
   const doneList = [...tasks].filter((task) => task.status === "done");
 
   return (
-    <section>
-      <div className="todo-list">
+    <section class="tasks-container">
+      <ul className="todo-list">
+        <h2>Todo Tasks</h2>
         {todoList.map((task) => (
           <TaskItem task={task} key={task.id} />
         ))}
-      </div>
-      <div className="inProgress-list">
+      </ul>
+      <ul className="inProgress-list">
+        <h2>In Progress Tasks</h2>
         {inProgressList.map((task) => (
           <TaskItem task={task} key={task.id} />
         ))}
-      </div>
-      <div className="done-list">
+      </ul>
+      <ul className="done-list">
+        <h2>Done Tasks</h2>
         {doneList.map((task) => (
           <TaskItem task={task} key={task.id} />
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

@@ -1,5 +1,107 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #f8f8f8;
   min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* tasks list styles */
+
+.tasks-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  padding: 2rem;
+}
+
+ul {
+  min-height: 5rem;
+  border: 6px solid;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+ul h2 {
+  margin-bottom: 1rem;
+}
+
+.todo-list {
+  border-color: #bf0000;
+  background: #ffc9c9;
+}
+.inProgress-list {
+  border-color: #2c3e50;
+  background: #b6dafd;
+}
+.done-list {
+  background: #59bd59;
+  border-color: #026602;
+}
+
+.todo-list h2 {
+  color: #bf0000;
+}
+.inProgress-list h2 {
+  color: #2c3e50;
+}
+.done-list h2 {
+  color: #026602;
+}
+
+li {
+  list-style: none;
+  min-height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background-color: #f8f8f8;
+  text-align: left;
+}
+
+.todo-list li {
+  border: #bf0000 3px solid;
+}
+
+.inProgress-list li {
+  border: 3px solid #2c3e50;
+}
+
+.done-list li {
+  border: #026602 3px solid;
+}
+
+.task-content {
+  max-width: 80%;
+  word-break: break-all;
+}
+
+li .task-title {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
 }

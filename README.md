@@ -7,7 +7,7 @@ To try this project:
 
 download the project using this this command:
 
-```git clone <https://github.com/Ahmed-Elbessfy/todo-refilex-react.git> ```
+```git clone <https://github.com/Ahmed-Elbessfy/todo-refilex-react.git>```
 
 open project folder
 

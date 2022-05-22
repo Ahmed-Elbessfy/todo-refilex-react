@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-import App from "../App";
 
 // initial state
 const appState = {

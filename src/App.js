@@ -1,13 +1,14 @@
 import { AppProvider } from "./context/TasksContext";
 
 import "./App.css";
+import Tasks from "./components/Tasks";
 
 function App() {
   return (
     <AppProvider>
-      <div className="App">
-
-      </div>
+      <main className="App">
+        <Tasks />
+      </main>
     </AppProvider>
   );
 }

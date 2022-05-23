@@ -36,7 +36,7 @@ const Tasks = () => {
 
   return (
     <section className="tasks-container">
-      {/* Edit task from  */}
+      {/* Edit task form  */}
       {showEditTask && (
         <EditTask
           task={editedTask}

@@ -70,6 +70,12 @@ const appState = {
 // reducer to determine actions and mutations for the state
 const appReducer = (state, action) => {
   switch (action.type) {
+    case "ADD_NEW_TASK":
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload],
+      };
+
     case "SET_MOVING_TASK":
       return {
         ...state,
@@ -107,6 +113,11 @@ export const AppProvider = ({ children }) => {
   // initiate state as an AppProvider state
   const [state, dispatch] = useReducer(appReducer, appState);
 
+  // add new task
+  const addNewTask = (newTask) => {
+    dispatch({ type: "ADD_NEW_TASK", payload: newTask });
+  };
+
   // set moving task to get dragged task data to change its status
   const setMovingTask = (task) => {
     dispatch({ type: "SET_MOVING_TASK", payload: task });
@@ -126,6 +137,7 @@ export const AppProvider = ({ children }) => {
       value={{
         tasks: state.tasks,
         movingTask: state.movingTask,
+        addNewTask,
         setMovingTask,
         updateTasksAfterDrag,
         updateTasksAfterEdit,

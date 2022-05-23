@@ -20,7 +20,6 @@ const EditTask = ({ task, closeEditForm }) => {
     background: "#fff",
     position: "relative",
     borderRadius: "1rem",
-    textAlign: "left",
   };
 
   // local state to keep control on form inputs and get updates

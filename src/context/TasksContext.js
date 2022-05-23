@@ -84,6 +84,16 @@ const appReducer = (state, action) => {
           state.movingTask,
         ],
       };
+
+    case "UPDATE_TASKS_AFTER_EDIT":
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks.filter((task) => task.id !== action.payload.id),
+          action.payload,
+        ],
+      };
+
     default:
       return state;
   }
@@ -106,6 +116,11 @@ export const AppProvider = ({ children }) => {
   const updateTasksAfterDrag = (id) =>
     dispatch({ type: "UPDATE_TASKS_AFTER_DRAG", payload: id });
 
+  // update tasks list with the new task of the editing task
+  const updateTasksAfterEdit = (task) => {
+    dispatch({ type: "UPDATE_TASKS_AFTER_EDIT", payload: task });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -113,6 +128,7 @@ export const AppProvider = ({ children }) => {
         movingTask: state.movingTask,
         setMovingTask,
         updateTasksAfterDrag,
+        updateTasksAfterEdit,
       }}
     >
       {children}

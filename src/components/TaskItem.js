@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/TasksContext";
 
-export const TaskItem = ({ task, allowDrag }) => {
+export const TaskItem = ({ task, allowDrag, openEditTask }) => {
   const { setMovingTask } = useContext(AppContext);
   // drag function
   const startDrag = (e, task) => {
@@ -9,6 +9,12 @@ export const TaskItem = ({ task, allowDrag }) => {
     e.dataTransfer.effectAllowed = "move";
     // store task id to use at drop
     setMovingTask(task);
+  };
+
+  // emit Edit task function
+  const activateEditTask = () => {
+    // call open edit task form at parent component
+    openEditTask(task);
   };
 
   return (
@@ -22,7 +28,7 @@ export const TaskItem = ({ task, allowDrag }) => {
         <p>{task.description}</p>
       </div>
       <div className="task-actions">
-        <button>edit</button>
+        <button onClick={activateEditTask}>edit</button>
         <button>delete</button>
       </div>
     </li>

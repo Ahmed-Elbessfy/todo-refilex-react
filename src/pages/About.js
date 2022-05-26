@@ -5,7 +5,7 @@ const About = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="App">
         <section>
           <h1>TODO application</h1>
           <p>This a todo application as a part of hiring process</p>

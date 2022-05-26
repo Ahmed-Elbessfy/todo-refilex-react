@@ -119,6 +119,18 @@ const appReducer = (state, action) => {
         ],
       };
 
+    case "DELETE_TASK":
+      localStorage.setItem(
+        "tasks",
+        JSON.stringify([
+          ...state.tasks.filter((task) => task.id !== action.payload),
+        ])
+      );
+      return {
+        ...state,
+        tasks: [...state.tasks.filter((task) => task.id !== action.payload)],
+      };
+
     default:
       return state;
   }
@@ -151,6 +163,9 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: "UPDATE_TASKS_AFTER_EDIT", payload: task });
   };
 
+  // Delete task
+  const deleteTask = (id) => dispatch({ type: "DELETE_TASK", payload: id });
+
   return (
     <AppContext.Provider
       value={{
@@ -160,6 +175,7 @@ export const AppProvider = ({ children }) => {
         setMovingTask,
         updateTasksAfterDrag,
         updateTasksAfterEdit,
+        deleteTask,
       }}
     >
       {children}

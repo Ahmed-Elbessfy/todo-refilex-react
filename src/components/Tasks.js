@@ -9,7 +9,8 @@ const Tasks = () => {
   const [editedTask, setEditedTask] = useState({});
 
   // import tasks list
-  const { tasks, movingTask, updateTasksAfterDrag } = useContext(AppContext);
+  const { tasks, movingTask, updateTasksAfterDrag, deleteTask } =
+    useContext(AppContext);
   // filter tasks depending on status
   const todoList = [...tasks].filter((task) => task.status === "todo");
   const inProgressList = [...tasks].filter(
@@ -56,6 +57,7 @@ const Tasks = () => {
             key={task.id}
             allowDrag="true"
             openEditTask={openEditTask}
+            deleteTask={openEditTask}
           />
         ))}
       </ul>
@@ -72,6 +74,7 @@ const Tasks = () => {
             key={task.id}
             allowDrag="true"
             openEditTask={openEditTask}
+            deleteTask={deleteTask}
           />
         ))}
       </ul>
@@ -83,7 +86,12 @@ const Tasks = () => {
         <h2>Done Tasks</h2>
         {/* done task can not be moved  */}
         {doneList.map((task) => (
-          <TaskItem task={task} key={task.id} openEditTask={openEditTask} />
+          <TaskItem
+            task={task}
+            key={task.id}
+            openEditTask={openEditTask}
+            deleteTask={deleteTask}
+          />
         ))}
       </ul>
     </section>

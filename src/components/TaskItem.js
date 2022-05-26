@@ -4,7 +4,7 @@ import { AppContext } from "../context/TasksContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-export const TaskItem = ({ task, allowDrag, openEditTask }) => {
+export const TaskItem = ({ task, allowDrag, openEditTask, deleteTask }) => {
   // styles
   const delBtn = {
     color: "#bf0000",
@@ -31,6 +31,9 @@ export const TaskItem = ({ task, allowDrag, openEditTask }) => {
     openEditTask(task);
   };
 
+  // deleting task function
+  const delTask = () => deleteTask(task.id);
+
   return (
     <li
       draggable={allowDrag}
@@ -42,7 +45,12 @@ export const TaskItem = ({ task, allowDrag, openEditTask }) => {
         <p>{task.description}</p>
       </div>
       <div className="task-actions">
-        <FontAwesomeIcon icon={faXmark} style={delBtn} size="xl" />
+        <FontAwesomeIcon
+          icon={faXmark}
+          onClick={delTask}
+          style={delBtn}
+          size="xl"
+        />
         <FontAwesomeIcon
           icon={faPenToSquare}
           onClick={activateEditTask}

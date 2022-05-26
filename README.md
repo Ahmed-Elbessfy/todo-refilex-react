@@ -5,6 +5,10 @@ This is a todo application where user can add, move, edit and delete tasks using
 
 To try this project:
 
+check live version [here](https://ahmed-elbessfy.github.io/todo-refilex-react/#/)
+
+or
+
 download the project using this this command:
 
 ```git clone <https://github.com/Ahmed-Elbessfy/todo-refilex-react.git>```

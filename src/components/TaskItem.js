@@ -1,7 +1,21 @@
 import React, { useContext } from "react";
 import { AppContext } from "../context/TasksContext";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+
 export const TaskItem = ({ task, allowDrag, openEditTask }) => {
+  // styles
+  const delBtn = {
+    color: "#bf0000",
+    cursor: "pointer",
+    marginBottom: "1.5rem",
+  };
+  const editBtn = {
+    color: "#2c3e50",
+    cursor: "pointer",
+  };
+
   const { setMovingTask } = useContext(AppContext);
   // drag function
   const startDrag = (e, task) => {
@@ -28,8 +42,13 @@ export const TaskItem = ({ task, allowDrag, openEditTask }) => {
         <p>{task.description}</p>
       </div>
       <div className="task-actions">
-        <button onClick={activateEditTask}>edit</button>
-        <button>delete</button>
+        <FontAwesomeIcon icon={faXmark} style={delBtn} size="xl" />
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          onClick={activateEditTask}
+          style={editBtn}
+          size="lg"
+        />
       </div>
     </li>
   );

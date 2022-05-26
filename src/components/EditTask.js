@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/TasksContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const EditTask = ({ task, closeEditForm }) => {
   // style variables
@@ -20,6 +22,17 @@ const EditTask = ({ task, closeEditForm }) => {
     background: "#fff",
     position: "relative",
     borderRadius: "1rem",
+  };
+
+  const closeBtn = {
+    position: "absolute",
+    top: "1rem",
+    right: "1rem",
+    border: "none",
+    background: "transparent",
+    color: "#2c3e50",
+    zIndex: 2,
+    cursor: "pointer",
   };
 
   // local state to keep control on form inputs and get updates
@@ -46,8 +59,15 @@ const EditTask = ({ task, closeEditForm }) => {
   return (
     <div style={overlayStyle}>
       <form onSubmit={saveChanges} style={editFormStyle}>
+        {/* close button  */}
+        <FontAwesomeIcon
+          icon={faXmark}
+          onClick={closeEditForm}
+          size="xl"
+          style={closeBtn}
+        />
+
         <h2>EditTask</h2>
-        <button onClick={closeEditForm}>X</button>
         <label>
           <p>Title:</p>
           <input type="text" value={localTitle} onChange={handleChangeTitle} />

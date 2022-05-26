@@ -1,17 +1,19 @@
 import { AppProvider } from "./context/TasksContext";
 
 import "./App.css";
-import Tasks from "./components/Tasks";
-import AddTask from "./components/AddTask";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 function App() {
   return (
     <AppProvider>
-      <main className="App">
-        {/* add new task form  */}
-        <AddTask />
-        <Tasks />
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </AppProvider>
   );
 }

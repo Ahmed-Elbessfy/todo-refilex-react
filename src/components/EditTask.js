@@ -22,6 +22,7 @@ const EditTask = ({ task, closeEditForm }) => {
     background: "#fff",
     position: "relative",
     borderRadius: "1rem",
+    width: "80%",
   };
 
   const closeBtn = {
